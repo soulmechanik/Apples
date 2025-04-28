@@ -1,0 +1,410 @@
+// rentpaymentreceipt.module.scss
+
+.receiptContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.receipt {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #4f46e5, #10b981);
+  }
+}
+
+.watermark {
+  position: absolute;
+  font-size: 20rem;
+  opacity: 0.03;
+  color: #4f46e5;
+  font-weight: 900;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+
+  .headerLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    .logo {
+      img {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+    }
+
+    .receiptMeta {
+      h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #111827;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .receiptId {
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+        color: #6b7280;
+      }
+
+      .receiptDate {
+        margin: 0.25rem 0 0;
+        font-size: 0.9rem;
+        color: #6b7280;
+      }
+    }
+  }
+
+  .headerRight {
+    text-align: right;
+
+    h2 {
+      margin: 0;
+      font-size: 1.75rem;
+      color: #4f46e5;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    p {
+      margin: 0.25rem 0 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+  margin: 1.5rem 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  .infoBlock {
+    h3 {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      color: #374151;
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .infoRow {
+      display: flex;
+      margin-bottom: 0.75rem;
+
+      span {
+        font-weight: 500;
+        color: #4b5563;
+        min-width: 100px;
+        font-size: 0.9rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #111827;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.rentPeriod {
+  margin-bottom: 2rem;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  .periodDetails {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    p {
+      margin: 0;
+      color: #666;
+    }
+
+    .duration {
+      background: #f0f0f0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.paymentDetails {
+  margin-bottom: 2rem;
+
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    color: #374151;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed #e5e7eb;
+  }
+}
+
+.paymentTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: #f3f4f6;
+      color: #374151;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.9rem;
+        color: #4b5563;
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+
+    .totalRow {
+      td {
+        font-weight: 700;
+        color: #111827;
+        background: #f9fafb;
+
+        &:last-child {
+          font-size: 1.1rem;
+          color: #10b981;
+        }
+      }
+    }
+  }
+}
+
+.paymentMethod {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #e5e7eb;
+
+  .methodRow {
+    display: flex;
+    margin-bottom: 0.75rem;
+
+    span {
+      font-weight: 500;
+      color: #4b5563;
+      min-width: 160px;
+      font-size: 0.9rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #111827;
+      font-weight: 500;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+
+  .signature {
+    .signatureLine {
+      width: 200px;
+      height: 1px;
+      background: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+  }
+
+  .footerNote {
+    text-align: right;
+
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+      line-height: 1.4;
+
+      &:nth-child(2) {
+        color: #4f46e5;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .backButton {
+    background: #f3f4f6;
+    color: #4b5563;
+
+    &:hover {
+      background: #e5e7eb;
+    }
+  }
+
+  .printButton {
+    background: #4f46e5;
+    color: white;
+
+    &:hover {
+      background: #4338ca;
+    }
+  }
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+
+  .backButton {
+    padding: 0.75rem 1.5rem;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #4338ca;
+    }
+  }
+}
+
+// Print styles
+// @media print {
+//   .printhide {
+//     background: none !important;
+//   }
+
+//   .receiptContainer {
+//     padding: 0;
+//     background: none;
+//   }
+
+//   .receipt {
+//     box-shadow: none;
+//     border-radius: 0;
+//     padding: 0;
+//     width: 210mm; // A4 width
+//     min-height: 297mm; // A4 height
+//     max-width: none;
+//     page-break-after: always;
+   
+
+//     &::before {
+//       display: none;
+//     }
+//   }
+
+//   .watermark {
+//     font-size: 15rem;
+//   }
+
+//   .actionButtons {
+//     display: none !important;
+//   }
+// }
+

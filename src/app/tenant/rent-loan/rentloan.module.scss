@@ -1,0 +1,124 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+  
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+  
+      .iconContainer {
+        background: #f0f7ff;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+  
+        .icon {
+          color: #7a5af8;
+          font-size: 2rem;
+        }
+      }
+  
+      h1 {
+        font-size: 2.5rem;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+  
+      .subtitle {
+        font-size: 1.2rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+  
+    .content {
+      display: flex;
+      justify-content: center;
+  
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+  
+        h2 {
+          font-size: 1.8rem;
+          color: #1e293b;
+          margin-bottom: 1.5rem;
+        }
+  
+        .benefitsList {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 2rem 0;
+          text-align: left;
+          
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #334155;
+            font-size: 1.1rem;
+  
+            .checkIcon {
+              color: #7a5af8;
+              margin-right: 0.8rem;
+              font-size: 1.2rem;
+            }
+          }
+        }
+  
+        .ctaButton {
+          background: #7a5af8;
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          font-size: 1.1rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          margin: 1rem 0;
+          width: 100%;
+  
+          &:hover {
+            background: #7a5af86a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+          }
+  
+          .arrowIcon {
+            margin-left: 0.5rem;
+            transition: transform 0.2s ease;
+          }
+  
+          &:hover .arrowIcon {
+            transform: translateX(3px);
+          }
+        }
+  
+        .note {
+          font-size: 0.85rem;
+          color: #64748b;
+          margin-top: 1.5rem;
+          line-height: 1.5;
+        }
+      }
+    }
+  }

@@ -1,0 +1,205 @@
+.tenantContainer {
+  padding: 24px;
+  background-color: #f9fafb; // Light background
+  min-height: 100vh;
+  font-family: "Inter", sans-serif; // Modern font
+}
+
+.tenantProfile {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profileHeader {
+  text-align: center;
+  margin-bottom: 32px;
+
+  .profileImage {
+    width: 100px;
+    height: 100px;
+    background-color: #7c3aed; // Light purple
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .icon {
+      font-size: 48px;
+      color: #ffffff; // White icon
+    }
+  }
+
+  .profileInfo {
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937; // Dark gray (almost black)
+      margin: 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: #6b7280; // Light gray
+      margin: 0;
+    }
+  }
+}
+
+.contactDetails {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+
+  .contactItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff; // White background
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contactIcon {
+      font-size: 18px;
+      color: #7c3aed; // Light purple
+    }
+
+    p {
+      font-size: 14px;
+      color: #1f2937; // Dark gray (almost black)
+      margin: 0;
+    }
+  }
+}
+
+.detailsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+
+  .detailsBlock {
+    background-color: #ffffff; // White background
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937; // Dark gray (almost black)
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      svg {
+        color: #7c3aed; // Light purple
+      }
+    }
+
+    .detailsContent {
+      p {
+        font-size: 14px;
+        color: #1f2937; // Dark gray (almost black)
+        margin: 8px 0;
+
+        strong {
+          color: #6b7280; // Light gray
+        }
+      }
+    }
+  }
+}
+
+.rentCycles {
+  margin-top: 32px;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f2937; // Dark gray (almost black)
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      color: #7c3aed; // Light purple
+    }
+  }
+}
+
+/* Timeline Styles */
+.vertical-timeline {
+  &::before {
+    background: #e5e7eb; // Light gray timeline line
+  }
+
+  .vertical-timeline-element {
+    margin-bottom: 32px;
+
+    &-icon {
+      background-color: #7c3aed; // Light purple icon background
+      box-shadow: 0 0 0 4px #ffffff, 0 4px 12px rgba(0, 0, 0, 0.1); // White border and shadow
+    }
+
+    &-content {
+      background-color: #ffffff; // White background
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 24px;
+
+      &::before {
+        border-right-color: #ffffff; // White arrow
+      }
+
+      h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #1f2937; // Dark gray (almost black)
+        margin-bottom: 16px;
+      }
+
+      .rentDetails {
+        p {
+          font-size: 14px;
+          color: #1f2937; // Dark gray (almost black)
+          margin: 8px 0;
+
+          strong {
+            color: #6b7280; // Light gray
+          }
+        }
+      }
+    }
+
+    &-date {
+      font-size: 14px;
+      color: #6b7280; // Light gray
+      font-weight: 500;
+    }
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 18px;
+  color: #6b7280; // Light gray
+  margin-top: 24px;
+}

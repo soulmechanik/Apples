@@ -1,0 +1,556 @@
+// Variables
+$primary: #7a5af8;
+$primary-light: rgba(122, 90, 248, 0.1);
+$primary-lighter: rgba(122, 90, 248, 0.05);
+$white: #ffffff;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$green-500: #10b981;
+$red-500: #ef4444;
+$orange-500: #f59e0b;
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$mobile-breakpoint: 640px;
+$tablet-breakpoint: 1024px;
+
+// Base styles
+.dashboard {
+  padding: 1rem;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media (min-width: $mobile-breakpoint) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    padding: 2rem;
+  }
+}
+
+// Metrics Grid
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 400px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.metricCard {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 1.25rem;
+  box-shadow: $shadow-xs;
+  display: flex;
+  align-items: center;
+  transition: $transition;
+  position: relative;
+  overflow: hidden;
+  min-height: 90px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  }
+
+  &.blueMetric::after {
+    background: $primary;
+  }
+
+  &.greenMetric::after {
+    background: $green-500;
+  }
+
+  &.purpleMetric::after {
+    background: $primary;
+  }
+
+  &.orangeMetric::after {
+    background: $orange-500;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    padding: 1.5rem;
+    min-height: auto;
+  }
+}
+
+.metricIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  font-size: 1rem;
+
+  .blueMetric & {
+    background: rgba($primary, 0.1);
+    color: $primary;
+  }
+
+  .greenMetric & {
+    background: rgba($green-500, 0.1);
+    color: $green-500;
+  }
+
+  .purpleMetric & {
+    background: rgba($primary, 0.1);
+    color: $primary;
+  }
+
+  .orangeMetric & {
+    background: rgba($orange-500, 0.1);
+    color: $orange-500;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+}
+
+.metricContent {
+  flex: 1;
+  min-width: 0; // Prevent text overflow
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.15rem;
+    color: $gray-800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: $gray-600;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.metricTrend {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 0.15rem;
+  color: $gray-500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+}
+
+// Dashboard Content Layout
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (min-width: $tablet-breakpoint) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.leftColumn {
+  flex: 1;
+  min-width: 0; // Prevent overflow
+}
+
+.rightColumn {
+  width: 100%;
+
+  @media (min-width: $tablet-breakpoint) {
+    width: 320px;
+    flex-shrink: 0;
+  }
+}
+
+// Quick Actions
+.quickActions {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: $gray-800;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 1.25rem;
+  }
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+
+  @media (min-width: $mobile-breakpoint) {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.actionCard {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 1rem;
+  box-shadow: $shadow-xs;
+  transition: $transition;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+
+    .actionHoverEffect {
+      opacity: 1;
+    }
+  }
+
+  h4 {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $gray-800;
+    line-height: 1.3;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 1rem;
+      margin-top: 0.75rem;
+    }
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    min-height: 120px;
+    padding: 1.25rem;
+  }
+}
+
+.actionIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 1rem;
+  flex-shrink: 0;
+
+  .blueAction & {
+    background: $primary;
+  }
+
+  .greenAction & {
+    background: $green-500;
+  }
+
+  .purpleAction & {
+    background: $primary;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+}
+
+.actionHoverEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: $transition;
+}
+
+// Analytics Section
+.analyticsSection {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 1.25rem;
+  box-shadow: $shadow-xs;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: $mobile-breakpoint) {
+    padding: 1.5rem;
+    box-shadow: $shadow-sm;
+  }
+}
+
+.chartContainer {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @media (min-width: $mobile-breakpoint) {
+    height: 300px;
+  }
+}
+
+// Activity Section
+.activitySection {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 1.25rem;
+  box-shadow: $shadow-xs;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: $mobile-breakpoint) {
+    padding: 1.5rem;
+    box-shadow: $shadow-sm;
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.viewAllButton {
+  background: none;
+  border: none;
+  color: $primary;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: $radius-sm;
+  transition: $transition;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background: $primary-light;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 0.9rem;
+  }
+}
+
+.activityList {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: $gray-500;
+  flex: 1;
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.75rem;
+    opacity: 0.6;
+
+    @media (min-width: $mobile-breakpoint) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  p {
+    margin: 0.25rem 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  small {
+    font-size: 0.75rem;
+    color: $gray-400;
+  }
+}
+
+// Performance Section
+.performanceSection {
+  background: $white;
+  border-radius: $radius-md;
+  padding: 1.25rem;
+  box-shadow: $shadow-xs;
+
+  @media (min-width: $mobile-breakpoint) {
+    padding: 1.5rem;
+    box-shadow: $shadow-sm;
+  }
+}
+
+.metricsGridSmall {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+
+  @media (min-width: $mobile-breakpoint) {
+    gap: 1rem;
+  }
+}
+
+.smallMetric {
+  background: $gray-50;
+  border-radius: $radius-sm;
+  padding: 0.75rem;
+
+  h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: $gray-600;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.metricValue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span:first-child {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $gray-800;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.trendIndicator {
+  font-weight: 700;
+  font-size: 0.8rem;
+
+  &.up {
+    color: $green-500;
+  }
+
+  &.down {
+    color: $red-500;
+  }
+
+  &.steady {
+    color: $orange-500;
+  }
+
+  @media (min-width: $mobile-breakpoint) {
+    font-size: 0.9rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $mobile-breakpoint) {
+  .actionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metricsGridSmall {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Loading states
+.skeletonItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skeletonContent {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+// Utility classes
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

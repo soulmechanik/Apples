@@ -1,0 +1,52 @@
+.formContainer {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+  
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+  
+      &:hover {
+        background: #555;
+      }
+    }
+  
+    .buttonGroup {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+  }
+  

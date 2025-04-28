@@ -1,0 +1,51 @@
+// PaymentSuccess.module.scss
+
+.paymentSuccessContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .paymentSuccessCard {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+  
+    h1 {
+      font-size: 2rem;
+      color: #4caf50; // Green color for success
+      margin-bottom: 20px;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+  }
+  
+  .dashboardButton {
+    background-color: #4caf50; // Green color for success
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #45a049; // Darker green on hover
+    }
+  
+    &:active {
+      background-color: #3d8b40; // Even darker green on click
+    }
+  }

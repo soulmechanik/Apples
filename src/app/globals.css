@@ -1,0 +1,24 @@
+:root {
+  --background: #0D1117;
+  --primary-text-color: #A3A3A3;
+  --secondary-text-color: #DFE3EE;
+  --title-text-gradient: linear-gradient(90deg, #4ADE80 0%, #1FB6FF 100%);
+  --button-color: #4ADE80;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Satoshi', sans-serif;
+  /* background-color:var(--background) ; */
+}
+
+.backgroundall{
+background-color: red;
+}
+
+

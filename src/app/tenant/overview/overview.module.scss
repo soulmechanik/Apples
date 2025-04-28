@@ -1,0 +1,660 @@
+// overview.module.scss
+
+.dashboard {
+    // Tenant-specific color scheme
+    --primary-color: #4361ee;       // Blue for primary actions
+    --secondary-color: #3a0ca3;     // Dark blue for accents
+    --success-color: #4cc9f0;       // Teal for positive status
+    --warning-color: #f8961e;       // Orange for warnings
+    --danger-color: #f72585;        // Pink for urgent items
+    --text-color: #2b2d42;          // Dark gray for text
+    --text-light: #8d99ae;          // Light gray for secondary text
+    --background: #f8f9fa;          // Off-white background
+    --card-bg: #ffffff;             // White cards
+    --border-color: #e9ecef;        // Light borders
+    --unread-color: #f8f0fc;        // Light purple for unread notifications
+    --property-accent: #3a0ca3;     // Dark blue for property card accents
+  
+    padding: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    color: var(--text-color);
+    background-color: var(--background);
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+  
+  // Header Styles
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--primary-color);
+    }
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    padding: 0.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      color: var(--text-light);
+  
+      &:hover {
+        color: var(--primary-color);
+        background: rgba(67, 97, 238, 0.1);
+      }
+  
+      &.active {
+        color: white;
+        background: var(--primary-color);
+        box-shadow: 0 2px 4px rgba(67, 97, 238, 0.2);
+      }
+    }
+  }
+  
+ // Summary Cards
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .cardIcon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(67, 97, 238, 0.1);
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+
+  .cardLabel {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .cardValue {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    
+    // For rent value container
+    .rentValue {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      
+      .rentDuration {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--text-secondary);
+      }
+    }
+  }
+
+  .cardTrend {
+    font-size: 0.8rem;
+    color: var(--success-color);
+    font-weight: 500;
+    
+    // Rent status container
+    .rentStatus {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+      
+      .statusBadge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        
+        &.status-active {
+          background-color: rgba(46, 204, 113, 0.1);
+          color: var(--success-color);
+        }
+        
+        &.status-upcoming {
+          background-color: rgba(241, 196, 15, 0.1);
+          color: var(--warning-color);
+        }
+        
+        &.status-expired {
+          background-color: rgba(231, 76, 60, 0.1);
+          color: var(--error-color);
+        }
+      }
+      
+      .daysRemaining,
+      .daysUpcoming,
+      .daysExpired {
+        font-size: 0.75rem;
+      }
+      
+      .daysRemaining {
+        color: var(--success-color);
+      }
+      
+      .daysUpcoming {
+        color: var(--warning-color);
+      }
+      
+      .daysExpired {
+        color: var(--error-color);
+      }
+    }
+  }
+
+  // User info container styles
+  .userInfoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    
+    .userInfoItem {
+      display: flex;
+      gap: 0.5rem;
+      
+      span {
+        font-weight: 500;
+        color: var(--text-light);
+      }
+    }
+  }
+}
+  
+  // Content Layout
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .leftColumn, .rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  // Section Styles
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      flex-grow: 1;
+    }
+  
+    svg {
+      color: var(--primary-color);
+    }
+  }
+  
+  .refreshButton {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: all 0.2s ease;
+  
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--primary-color);
+    }
+  }
+  
+  // Property Details Card
+  .propertyDetails {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    .propertyHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--property-accent);
+      }
+      
+      .propertyUnit {
+        background: rgba(58, 12, 163, 0.1);
+        color: var(--property-accent);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    }
+    
+    .propertyInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      
+      .propertyInfoItem {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        
+        .propertyIcon {
+          color: var(--property-accent);
+          margin-top: 0.2rem;
+          flex-shrink: 0;
+        }
+        
+        span {
+          font-size: 0.95rem;
+          line-height: 1.4;
+        }
+      }
+    }
+    
+    // Add these styles to your module.scss
+    .leaseInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    
+      .leasePeriod {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    
+        span {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+    
+          &::before {
+            content: "•";
+            color: var(--primary-color);
+          }
+        }
+      }
+    
+      .viewLeaseButton {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        border: none;
+        color: var(--primary-color);
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        transition: color 0.2s ease;
+    
+        &:hover {
+          color: var(--primary-dark);
+          text-decoration: underline;
+        }
+    
+        svg {
+          transition: transform 0.2s ease;
+        }
+    
+        &:hover svg {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+  
+  // Quick Actions
+  .actionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  .actionCard {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 100px;
+  
+    &:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(67, 97, 238, 0.1);
+      transform: translateY(-2px);
+    }
+  
+    .actionIcon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(67, 97, 238, 0.1);
+      color: var(--primary-color);
+      transition: all 0.2s ease;
+    }
+  
+    span {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+  }
+  
+  // Notification List
+  .notificationList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .notificationItem {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    position: relative;
+  
+    &.unread {
+      background-color: var(--unread-color);
+      border-left: 4px solid var(--primary-color);
+    }
+  
+    &:hover {
+      border-color: var(--primary-color);
+    }
+  
+    .notificationContent {
+      flex-grow: 1;
+      
+      h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 0.25rem 0;
+      }
+  
+      p {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin: 0 0 0.25rem 0;
+      }
+  
+      .timeAgo {
+        font-size: 0.75rem;
+        color: var(--text-light);
+      }
+    }
+  }
+  
+  .unreadBadge {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-left: 0.5rem;
+  }
+  
+  // Status Styles
+  .status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    width: fit-content;
+  
+    &.statusCompleted {
+      background: rgba(76, 201, 240, 0.1);
+      color: var(--success-color);
+    }
+  
+    &.statusPending {
+      background: rgba(248, 150, 30, 0.1);
+      color: var(--warning-color);
+    }
+  
+    &.statusOverdue {
+      background: rgba(247, 37, 133, 0.1);
+      color: var(--danger-color);
+    }
+  }
+  
+  // Chart Container
+  .chartContainer {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .chartSummary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  
+    .summaryItem {
+      background: var(--background);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+  
+      .summaryLabel {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin-bottom: 0.25rem;
+      }
+  
+      .summaryValue {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  // Payment List
+  .paymentList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .paymentItem {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s ease;
+  
+    &:hover {
+      border-color: var(--primary-color);
+    }
+  
+    .paymentIcon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(67, 97, 238, 0.1);
+      color: var(--primary-color);
+      flex-shrink: 0;
+    }
+  
+    .paymentDetails {
+      flex-grow: 1;
+  
+      h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 0.25rem 0;
+      }
+  
+      p {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin: 0;
+      }
+    }
+  
+    .paymentAmount {
+      text-align: right;
+      flex-shrink: 0;
+  
+      span {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+  
+  // Buttons
+  .viewAllButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: all 0.2s ease;
+    width: fit-content;
+  
+    &:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+  }
+  
+  // Responsive Adjustments
+  @media (max-width: 768px) {
+    .summaryCards {
+      grid-template-columns: 1fr;
+    }
+  
+    .actionsGrid {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .notificationItem, .paymentItem {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+  
+      .status {
+        align-self: flex-start;
+      }
+    }
+  
+    .paymentItem {
+      .paymentAmount {
+        text-align: left;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }

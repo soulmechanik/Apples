@@ -1,0 +1,326 @@
+// Footer.module.scss
+
+// Variables (consistent with Hero and Header)
+$primary-color: #7a5af8;
+$secondary-color: #10b981;
+$dark-bg: #0f0f1a;
+$light-bg: #1a1a2e;
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$card-bg: rgba(26, 26, 46, 0.6);
+
+// Base Footer Styles
+.footer {
+  position: relative;
+  background: $dark-bg;
+  color: $text-primary;
+  padding-top: 4rem;
+  overflow: hidden;
+}
+
+.footerBorder {
+  height: 2px;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  margin-bottom: 3rem;
+}
+
+.footerContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+// Brand Column
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: $text-primary;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.logoIcon {
+  color: $primary-color;
+  font-size: 1.8rem;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+
+  span {
+    display: block;
+  }
+}
+
+.logoAccent {
+  color: $primary-color;
+  font-size: 0.9rem;
+}
+
+.tagline {
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  color: $text-secondary;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.socialIcon {
+  font-size: 1.5rem;
+}
+
+// Links Columns
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.columnTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $text-primary;
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: $primary-color;
+  }
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footerLink {
+  color: $text-secondary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  &:hover {
+    color: $primary-color;
+    transform: translateX(5px);
+  }
+}
+
+// Contact Column
+.contactColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.contactIcon {
+  color: $primary-color;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.contactLink, .contactText {
+  color: $text-secondary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+
+.contactLink:hover {
+  color: $primary-color;
+}
+
+// Newsletter
+.newsletter {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: $card-bg;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.newsletterTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $text-primary;
+}
+
+.newsletterText {
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: $text-primary;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+  }
+
+  &::placeholder {
+    color: rgba($text-secondary, 0.7);
+  }
+}
+
+.newsletterButton {
+  padding: 0.9rem 2rem;
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: lighten($primary-color, 5%);
+  }
+}
+
+// Footer Bottom
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+.copyright {
+  color: $text-secondary;
+  font-size: 0.9rem;
+}
+
+.legalLinks {
+  display: flex;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    order: -1;
+  }
+}
+
+.legalLink {
+  color: $text-secondary;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.backToTop {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: lighten($primary-color, 5%);
+    transform: translateY(-3px);
+  }
+}
+
+.backToTopIcon {
+  font-size: 1.2rem;
+}

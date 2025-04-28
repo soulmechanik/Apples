@@ -1,0 +1,286 @@
+// transactions.module.scss
+
+// ========== BASE STYLES ==========
+.container {
+  padding: 32px;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+// ========== HEADER STYLES ==========
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.filterButton, .exportButton {
+  border: 1px solid #e0e0e0 !important;
+  color: #5a4fcf !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: #f5f3ff !important;
+    border-color: #d0c8ff !important;
+  }
+}
+
+// ========== TABLE STYLES ==========
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+
+  thead {
+    tr {
+      background: linear-gradient(to right, #f9f7ff, #f5f2ff);
+      border-bottom: 1px solid #e8e3ff;
+
+      th {
+        padding: 16px 24px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+        color: #5a4fcf;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background: rgba(90, 79, 207, 0.08);
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #f5f5f5;
+      transition: background 0.2s ease;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: #faf9ff;
+      }
+
+      td {
+        padding: 18px 24px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sortArrow {
+  color: #c7c0f8;
+  font-size: 12px;
+  transition: all 0.2s ease;
+
+  &.active {
+    color: #5a4fcf;
+  }
+}
+
+// ========== CELL STYLES ==========
+.categoryCell {
+  display: flex;
+}
+
+.categoryPill {
+  background: rgba(90, 79, 207, 0.1);
+  color: #5a4fcf;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.tenantCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tenantName {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.paymentMethod {
+  font-size: 12px;
+  color: #888;
+}
+
+.propertyCell {
+  font-weight: 500;
+  color: #333;
+}
+
+.dateCell {
+  color: #666;
+  font-size: 14px;
+}
+
+.amountCell {
+  font-weight: 600;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+}
+
+// ========== STATUS PILL ==========
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.paid {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  &.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+}
+
+// ========== VIEW BUTTON ==========
+.viewButton {
+  color: #5a4fcf !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  padding: 6px 8px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: rgba(90, 79, 207, 0.1) !important;
+  }
+
+  &:disabled {
+    color: #ccc !important;
+    cursor: not-allowed !important;
+  }
+}
+
+// ========== FOOTER ==========
+.footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.paginationControls {
+  display: flex;
+  gap: 8px;
+
+  button {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: #5a4fcf;
+      color: #5a4fcf;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// ========== LOADING STATES ==========
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// .dataRow {
+//   animation: pulse 1.5s ease-in-out infinite;
+// }
+
+// ========== RESPONSIVE ADJUSTMENTS ==========
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,641 @@
+// Hero.module.scss
+
+// Variables
+$primary-color: #7a5af8;
+$secondary-color: #10b981;
+$dark-bg: #0f0f1a;
+$light-bg: #1a1a2e;
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$card-bg: rgba(26, 26, 46, 0.6);
+
+// Base Container
+.heroContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: $dark-bg;
+  color: $text-primary;
+  font-family: 'Inter', sans-serif;
+}
+
+// Particle Background
+.particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.15;
+}
+
+// Main Content Area
+.mainContent {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+// Hero Section
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  padding: 4rem 0;
+  gap: 3rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba($primary-color, 0.2);
+  border: 1px solid rgba($primary-color, 0.4);
+  border-radius: 2rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+
+  & span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+
+  & span {
+    display: block;
+  }
+}
+
+.heroHighlight {
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: $text-secondary;
+  max-width: 600px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background: $primary-color;
+  color: white;
+  border: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  & .arrowIcon {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .arrowIcon {
+    transform: translateX(3px);
+  }
+}
+
+// Dashboard Visualization
+.dashboardVisual {
+  flex: 1;
+  position: relative;
+  max-width: 600px;
+  margin-top: 3rem;
+
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
+}
+
+.platformMockup {
+  background: $card-bg;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.screenHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.logoMark {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metricCard {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  & .metricIcon {
+    font-size: 2rem;
+    color: $primary-color;
+  }
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1.2;
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  color: $text-secondary;
+  display: block;
+}
+
+.chartContainer {
+  grid-column: span 2;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  height: 120px;
+
+  & .chartIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: rgba($primary-color, 0.3);
+    font-size: 3rem;
+  }
+}
+
+.chartLine {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $primary-color, transparent);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 20%;
+    width: 60%;
+    height: 2px;
+    background: $primary-color;
+    transform: rotate(-2deg);
+  }
+}
+
+.propertyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.propertyCard {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.propertyImage {
+  height: 100px;
+  background: linear-gradient(45deg, #3a1c71, #d76d77);
+}
+
+.propertyInfo {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+
+  & span {
+    display: block;
+    
+    &:first-child {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    &:last-child {
+      font-size: 0.8rem;
+      color: $text-secondary;
+    }
+  }
+}
+
+// Pathway Cards
+.pathwaysSection {
+  padding: 5rem 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, $text-primary, $text-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pathwayCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pathwayCard {
+  background: $card-bg;
+  border-radius: 1rem;
+  padding: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.cardIllustration {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($primary-color, 0.2);
+  margin-bottom: 1.5rem;
+
+  & .cardIcon {
+    font-size: 2rem;
+    color: $primary-color;
+  }
+}
+
+.pathwayCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.pathwayCard p {
+  color: $text-secondary;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.enterButton {
+  display: inline-flex;
+  align-items: center;
+  color: $primary-color;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  & svg {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .pathwayCard:hover & {
+    color: lighten($primary-color, 10%);
+
+    & svg {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// Financial Hub
+.financialHub {
+  padding: 5rem 0;
+}
+
+.hubCard {
+  background: $card-bg;
+  border-radius: 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    text-align: left;
+    gap: 3rem;
+  }
+}
+
+.hubVisual {
+  margin-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.hubIcon {
+  font-size: 6rem;
+  color: $primary-color;
+}
+
+.hubContent {
+  flex: 1;
+}
+
+.hubCard h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, $text-primary, $text-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hubCard p {
+  color: $text-secondary;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.hubButton {
+  padding: 0.9rem 2rem;
+  background: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .pathwayCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+// Alex AI Section Styles
+.aiLawSection {
+    padding: 5rem 2rem;
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 46, 0.9),
+      rgba(15, 15, 26, 1)
+    );
+    border-radius: 1rem;
+    margin: 4rem auto;
+    max-width: 1200px;
+    overflow: hidden;
+    border: 1px solid rgba(122, 90, 248, 0.2);
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(122, 90, 248, 0.1) 0%,
+        transparent 70%
+      );
+      z-index: -1;
+    }
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #f8fafc, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .sectionIcon {
+    font-size: 2.5rem;
+    color: $primary-color;
+  }
+  
+  .sectionSubtitle {
+    color: $text-secondary;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .aiLawGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .aiLawCard {
+    background: $card-bg;
+    border-radius: 0.8rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px);
+      border-color: rgba(122, 90, 248, 0.5);
+    }
+  }
+  
+  .aiLawIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(122, 90, 248, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  
+    svg {
+      font-size: 2rem;
+      color: $primary-color;
+    }
+  }
+  
+  .aiLawCard h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: $text-primary;
+  }
+  
+  .aiLawCard p {
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+  
+  .aiLawDemo {
+    grid-column: span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    @media (min-width: 900px) {
+      grid-column: span 2;
+    }
+  }
+  
+  .demoTrigger {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: rgba(122, 90, 248, 0.2);
+    border: 1px solid rgba(122, 90, 248, 0.5);
+    border-radius: 0.5rem;
+    color: $text-primary;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      background: rgba(122, 90, 248, 0.3);
+      transform: scale(1.02);
+  
+      .playIcon {
+        transform: scale(1.1);
+      }
+    }
+  }
+  
+  .playIcon {
+    font-size: 2rem;
+    color: $primary-color;
+    transition: all 0.3s ease;
+  }
+  
+  .videoContainer {
+    width: 100%;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    border: 1px solid rgba(122, 90, 248, 0.3);
+  }
+  
+  .videoPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #1a1a2e, #0f0f1a);
+    color: $text-secondary;
+    font-size: 1.2rem;
+  }
+
+
+  

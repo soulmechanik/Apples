@@ -1,0 +1,462 @@
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+  }
+  
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .filterGroup {
+    display: flex;
+    align-items: center;
+    background: #f3f4f6;
+    border-radius: 6px;
+    padding: 0.5rem;
+  }
+  
+  .filterIcon {
+    margin-right: 0.5rem;
+    color: #6b7280;
+  }
+  
+  .filterSelect {
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    color: #374151;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .refreshButton {
+    background: #f3f4f6;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  
+    &:hover {
+      background: #e5e7eb;
+    }
+  
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+  
+  .refreshIcon {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  
+  .spinning {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .newRequestButton {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  
+    &:hover {
+      background: #2563eb;
+    }
+  }
+  
+  .plusIcon {
+    font-size: 1rem;
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .modalHeader {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0.25rem;
+  
+    &:hover {
+      color: #374151;
+    }
+  }
+  
+  .form {
+    padding: 1.5rem;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #374151;
+    }
+  
+    select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+  
+      &:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+    }
+  
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+  }
+  
+  .formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .cancelButton {
+    background: #f3f4f6;
+    color: #374151;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+  
+    &:hover {
+      background: #e5e7eb;
+    }
+  }
+  
+  .submitButton {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+  
+    &:hover {
+      background: #2563eb;
+    }
+  }
+  
+  .requestGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .requestCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .cardHeader {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .headerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .propertyInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .propertyIcon {
+    color: #6b7280;
+  }
+  
+  .propertyName {
+    font-weight: 500;
+    color: #1f2937;
+  }
+  
+  .statusBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    width: fit-content;
+  }
+  
+  .date {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+  
+  .cardBody {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .categoryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .category {
+    font-weight: 500;
+    color: #1f2937;
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  
+  .urgency {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+  
+    &.low {
+      background: #d1fae5;
+      color: #065f46;
+    }
+  
+    &.normal {
+      background: #bfdbfe;
+      color: #1e40af;
+    }
+  
+    &.high {
+      background: #fef3c7;
+      color: #92400e;
+    }
+  
+    &.emergency {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  }
+  
+  .descriptionContainer {
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    color: #4b5563;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .seeMoreButton {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .commentsSection {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e5e7eb;
+  }
+  
+  .commentsHeader {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .commentsText {
+    font-size: 0.85rem;
+    color: #4b5563;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .cardFooter {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .statusDisplay {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+  
+  .updatedText {
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+  
+  .emptyState {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .emptyIcon {
+    font-size: 2.5rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+  }
+  
+  .emptyState p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+  }
+  
+  .emptyStateButton {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  
+    &:hover {
+      background: #2563eb;
+    }
+  }
+  
+  .skeletonCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .skeletonLine {
+    height: 1rem;
+    background: #f3f4f6;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  
+    &:last-child {
+      margin-bottom: 0;
+      width: 60%;
+    }
+  }

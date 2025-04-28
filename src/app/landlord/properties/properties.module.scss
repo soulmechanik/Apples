@@ -1,0 +1,240 @@
+// properties.module.scss
+
+// ========== VARIABLES ==========
+$primary-color: #7a5af8;
+$success-color: #10b981;
+$warning-color: #f59e0b;
+$text-primary: #1a1a1a;
+$text-secondary: #666;
+$border-color: #f0f0f0;
+$transition-speed: 0.3s;
+
+// ========== BASE CONTAINER ==========
+.container {
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+// ========== HEADER STYLES ==========
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0;
+  background: linear-gradient(to right, $primary-color, lighten($primary-color, 10%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: $primary-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all $transition-speed ease;
+  box-shadow: 0 4px 12px rgba(122, 90, 248, 0.2);
+
+  &:hover {
+    background: darken($primary-color, 5%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(122, 90, 248, 0.3);
+  }
+}
+
+// ========== METRICS DASHBOARD ==========
+.metricsDashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.metricCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid $border-color;
+  transition: all $transition-speed ease;
+  cursor: default;
+}
+
+.metricIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.metricContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  color: $text-secondary;
+  margin-bottom: 0.25rem;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $text-primary;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.metricTrend {
+  font-size: 0.8rem;
+  color: $success-color;
+  font-weight: 500;
+}
+
+// ========== PROPERTY GRID ==========
+.propertyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.propertyCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid $border-color;
+  transition: all $transition-speed ease;
+  position: relative;
+}
+
+.propertyCardSkeleton {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.propertyImage {
+  height: 160px;
+  width: 100%;
+  position: relative;
+}
+
+.propertyType {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.propertyDetails {
+  padding: 1.5rem;
+}
+
+.propertyHeader {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 1rem;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 0.5rem 0;
+  }
+}
+
+.propertyLocation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: $text-secondary;
+}
+
+.propertyStats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: $text-secondary;
+}
+
+// ========== PROPERTY ACTIONS ==========
+.propertyActions {
+  display: flex;
+  justify-content: center;
+}
+
+.manageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all $transition-speed ease;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    background: darken($primary-color, 5%);
+    box-shadow: 0 4px 12px rgba(122, 90, 248, 0.3);
+  }
+}
+
+// ========== ANIMATIONS ==========
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+// ========== RESPONSIVE ADJUSTMENTS ==========
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .propertyGrid {
+    grid-template-columns: 1fr;
+  }
+}

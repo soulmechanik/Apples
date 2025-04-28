@@ -1,0 +1,202 @@
+/* ===== VARIABLES (consistent with main theme) ===== */
+$primary-color: #7a5af8;
+$secondary-color: #10b981;
+$dark-bg: #0f0f1a;
+$light-bg: #1a1a2e;
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$card-bg: rgba(26, 26, 46, 0.6);
+
+/* ===== BASE STYLES ===== */
+.contactContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: $dark-bg;
+  color: $text-primary;
+  font-family: 'Inter', sans-serif;
+  padding-bottom: 4rem;
+}
+
+.mainContent {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ===== HERO SECTION ===== */
+.contactHero {
+  text-align: center;
+  padding: 6rem 0 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.heroHighlight {
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== CONTACT CARDS ===== */
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+.contactCard {
+  background: $card-bg;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 2.5rem;
+}
+
+.contactButton {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.whatsappButton {
+  background: #25D366;
+  color: white;
+}
+
+.emailButton {
+  background: $primary-color;
+  color: white;
+}
+
+.phoneButton {
+  background: $secondary-color;
+  color: white;
+}
+
+.drinkButton {
+  background: #ef4444;
+  color: white;
+}
+
+/* ===== OFFICE SECTION ===== */
+.officeSection {
+  max-width: 1200px;
+  margin: 6rem auto 0;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, $text-primary, $text-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.officeCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.officeCard {
+  background: $card-bg;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .contactHero {
+    padding: 4rem 0 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}

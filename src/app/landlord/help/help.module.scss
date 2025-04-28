@@ -1,0 +1,410 @@
+// Variables with #5a4fcf palette
+$primary: #5a4fcf;       // Main purple shade
+$primary-light: #7a70e0; // Lighter variant
+$primary-dark: #3a30af;  // Darker variant
+$accent: #a89ff8;        // Light accent
+$dark: #0f0e23;          // Deep dark blue-purple
+$light: #f8f9fe;         // Very light purple-white
+$emergency: #ff4d6d;     // Vibrant pink for emergency
+$tech-gradient: linear-gradient(135deg, $primary 0%, $primary-light 50%, $accent 100%);
+
+// Glass morphism mixin
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+// Base Styles with modern tech theme
+.helpContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: $light;
+  color: $dark;
+  
+  // Modern typography
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: $tech-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba($primary, 0.2);
+
+    .highlight {
+      display: inline-block;
+      padding: 0 0.5rem;
+      background: linear-gradient(90deg, $accent, $primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $accent;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: $tech-gradient;
+      border-radius: 2px;
+    }
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: $primary;
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 700px;
+  }
+
+  // Hero Section - Futuristic design
+  .hero {
+    @include glass-effect;
+    border-radius: 24px;
+    padding: 6rem 4rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($accent, 0.05) 100%);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba($accent, 0.1) 0%, rgba($accent, 0) 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      z-index: -1;
+    }
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .heroIcon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: $primary;
+    filter: drop-shadow(0 4px 10px rgba($primary, 0.3));
+  }
+
+  // Modern CTA Button
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: $tech-gradient;
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba($primary, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba($primary, 0.4);
+      
+      &::before {
+        left: 100%;
+      }
+    }
+    
+    svg {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Futuristic Features Grid
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 6rem;
+  }
+
+  .featureCard {
+    @include glass-effect;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: $tech-gradient;
+      transition: width 0.4s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba($primary, 0.15);
+      
+      &::before {
+        width: 8px;
+      }
+    }
+  }
+
+  .featureIcon {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: $primary;
+    background: rgba($primary, 0.1);
+    padding: 1.5rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Techy Help Topics
+  .topics {
+    margin-bottom: 6rem;
+    text-align: center;
+  }
+
+  .topicGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .topicItem {
+    @include glass-effect;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: $tech-gradient;
+      transition: width 0.3s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .topicIcon {
+    font-size: 1.8rem;
+    color: $primary;
+    min-width: 50px;
+    height: 50px;
+    background: rgba($primary, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Glowing Emergency Banner
+  .emergency {
+    @include glass-effect;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: rgba($emergency, 0.1);
+    border-left: none;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba($emergency, 0.2) 0%, rgba($emergency, 0) 70%);
+      animation: pulse 4s ease infinite;
+      z-index: -1;
+    }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 0.3; }
+    100% { transform: scale(0.8); opacity: 0.7; }
+  }
+
+  .emergencyContent {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .emergencyButton {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: $emergency;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba($emergency, 0.4);
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    
+    &:hover {
+      background: darken($emergency, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba($emergency, 0.5);
+      
+      &::after {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 1024px) {
+    padding: 2rem 1.5rem;
+    
+    h1 {
+      font-size: 3rem;
+    }
+    
+    .hero {
+      padding: 4rem 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+    
+    .hero {
+      padding: 3rem 1.5rem;
+    }
+    
+    .features {
+      grid-template-columns: 1fr;
+    }
+    
+    .topicGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

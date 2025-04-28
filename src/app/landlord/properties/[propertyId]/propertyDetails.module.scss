@@ -1,0 +1,229 @@
+.container {
+  padding: 20px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.propertyCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .propertyImage {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .propertyInfo {
+    padding: 24px;
+    flex: 1;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 24px;
+    }
+
+    .infoRow {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      .infoCard {
+        background-color: #f9fafb;
+        padding: 16px;
+        border-radius: 12px;
+        flex: 1;
+        min-width: 200px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        strong {
+          font-size: 14px;
+          color: #6b7280;
+        }
+
+        p {
+          font-size: 16px;
+          color: #1f2937;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.tenantsSection {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+
+  .addTenantBtnContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+
+    .addTenantBtn {
+      background-color: #4f46e5;
+      color: #ffffff;
+      text-transform: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 12px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: #4338ca;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .tenantsListHeader {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 24px;
+  }
+
+  .tenantsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Ensure titles and content are vertically aligned
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 600;
+    color: #6b7280;
+  
+    span {
+      flex: 1;
+      text-align: left; // Align text to the left
+      padding: 0 10px; // Add padding for consistent spacing
+    }
+  
+    span:last-child {
+      text-align: right; // Align the "Action" column to the right
+    }
+  }
+  
+  .tenantRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Ensure tenant info and actions are vertically aligned
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #f9fafb;
+    }
+  
+    span {
+      flex: 1;
+      font-size: 14px;
+      color: #1f2937;
+      padding: 0 10px; // Match padding with the header
+      text-align: left; // Align text to the left
+    }
+  
+    span:last-child {
+      text-align: right; // Align the action buttons to the right
+    }
+  
+    .tenantActions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end; // Align buttons to the right
+      flex: 1;
+    }
+  }
+
+  .tenantsContainer {
+    .tenantRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #e5e7eb;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f9fafb;
+      }
+
+      span {
+        flex: 1;
+        font-size: 14px;
+        color: #1f2937;
+      }
+
+      .tenantActions {
+        display: flex;
+        gap: 12px;
+
+        .checkTenantBtn {
+          border-color: #4f46e5;
+          color: #4f46e5;
+          text-transform: none;
+          font-size: 12px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          &:hover {
+            background-color: #4f46e5;
+            color: #ffffff;
+          }
+        }
+
+        .requestRentBtn {
+          background-color: #4f46e5;
+          color: #ffffff;
+          text-transform: none;
+          font-size: 12px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+
+          &:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+          }
+        }
+
+        .delete {
+          background-color: #dc2626;
+          color: #ffffff;
+          text-transform: none;
+          font-size: 12px;
+          padding: 8px 16px;
+          border-radius: 8px;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+
+          &:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}

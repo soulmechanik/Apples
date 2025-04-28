@@ -1,0 +1,354 @@
+// Variables
+$primary-color: #7a5af8;
+$primary-light: rgba(122, 90, 248, 0.08);
+$white: #ffffff;
+$white-soft: #f9fafb;
+$gray-light: #f3f4f6;
+$gray-medium: #e5e7eb;
+$gray-dark: #6b7280;
+$text: #111827;
+$text-light: #4b5563;
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$radius-sm: 6px;
+$radius-md: 8px;
+$transition: all 0.2s ease;
+
+.layout {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar main";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  background-color: $white-soft;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 64px;
+  background-color: $white;
+  border-bottom: 1px solid $gray-medium;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menuButton {
+  color: $text !important;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  
+  .logoPrimary {
+    color: $text;
+  }
+  
+  .logoSecondary {
+    color: $primary-color;
+  }
+}
+
+.searchContainer {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 2rem;
+  
+  @media (max-width: 768px) {
+    margin: 0 1rem;
+    max-width: none;
+  }
+}
+
+.desktopSearch {
+  display: flex;
+  align-items: center;
+  background: $gray-light;
+  border-radius: $radius-md;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  
+  .searchIcon {
+    color: $gray-dark;
+    margin-right: 0.75rem;
+  }
+  
+  input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 0.9rem;
+    color: $text;
+    outline: none;
+    
+    &::placeholder {
+      color: $gray-dark;
+    }
+  }
+}
+
+.mobileSearch {
+  display: flex;
+  align-items: center;
+  background: $white;
+  border-radius: $radius-md;
+  padding: 0.5rem;
+  width: 100%;
+  
+  .searchIcon {
+    color: $gray-dark;
+    margin: 0 0.5rem;
+  }
+  
+  input {
+    border: none;
+    background: transparent;
+    flex: 1;
+    font-size: 0.9rem;
+    color: $text;
+    outline: none;
+    min-width: 0;
+  }
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notificationButton {
+  color: $text !important;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: $transition;
+  
+  &:hover {
+    background: $gray-light;
+  }
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $primary-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-color;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  
+  .userName {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text;
+  }
+  
+  .userRole {
+    font-size: 0.75rem;
+    color: $text-light;
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: $white;
+  border-right: 1px solid $gray-medium;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 90;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid $gray-medium;
+  margin-bottom: 1rem;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+  overflow-y: auto;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.navItem {
+  position: relative;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+  
+  &.active {
+    background: $primary-light;
+    
+    .navLink {
+      color: $primary-color;
+      font-weight: 500;
+    }
+    
+    .icon {
+      color: $primary-color;
+    }
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  color: $text;
+  text-decoration: none;
+  position: relative;
+  transition: $transition;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  margin-right: 12px;
+  
+  .icon {
+    color: $text;
+    transition: $transition;
+  }
+  
+  .activeIcon {
+    color: $primary-color;
+  }
+  
+  .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    
+    .MuiBadge-badge {
+      font-size: 0.6rem;
+      height: 18px;
+      min-width: 18px;
+    }
+  }
+}
+
+.label {
+  flex: 1;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.activeIndicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: $primary-color;
+}
+
+.hoverChevron {
+  color: $primary-color;
+  margin-left: 0.5rem;
+}
+
+.sidebarFooter {
+  padding: 1rem 0.5rem;
+  border-top: 1px solid $gray-medium;
+  margin-top: auto;
+}
+
+.collapseButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: $text-light;
+  cursor: pointer;
+  border-radius: $radius-sm;
+  transition: $transition;
+  font-size: 0.875rem;
+  
+  &:hover {
+    background: $gray-light;
+    color: $text;
+  }
+}
+
+.main {
+  grid-area: main;
+  padding: 2rem;
+  overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 80;
+}
+
+// Tooltip styling
+.MuiTooltip-tooltip {
+  font-size: 0.8rem !important;
+  background: $text !important;
+  padding: 0.5rem 0.75rem !important;
+}
+
+.MuiTooltip-arrow {
+  color: $text !important;
+}

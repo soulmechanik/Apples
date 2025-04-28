@@ -1,0 +1,290 @@
+// Header.module.scss
+
+// Variables (should match Hero variables)
+$primary-color: #7a5af8;
+$secondary-color: #10b981;
+$dark-bg: #0f0f1a;
+$light-bg: #1a1a2e;
+$text-primary: #f8fafc;
+$text-secondary: #94a3b8;
+$card-bg: rgba(26, 26, 46, 0.6);
+
+// Base Header Styles
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: rgba($dark-bg, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+
+//logo 
+
+
+
+// Logo Styles
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;  // Matches the JSX width
+  height: 50px;  // Matches the JSX height
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+
+// Desktop Navigation
+.desktopNav {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  color: $text-primary;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: lighten($primary-color, 10%);
+  }
+
+  &.active {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+.linkText {
+  position: relative;
+  z-index: 2;
+}
+
+.hoverIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: $primary-color;
+  z-index: 1;
+}
+
+// CTA Button
+.ctaContainer {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: $primary-color;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: lighten($primary-color, 5%);
+    box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+  }
+}
+
+.ctaIcon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: translateX(3px);
+}
+
+// Mobile Menu Button
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: $text-primary;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+}
+
+.menuIcon {
+  font-size: 1.8rem;
+}
+
+// Mobile Navigation
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  background: $dark-bg;
+  z-index: 1000;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileNavHeader {
+  margin-bottom: 2rem;
+}
+
+.mobileLogo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  text-decoration: none;
+
+  span {
+    color: $primary-color;
+  }
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.mobileNavItem {
+  margin-bottom: 1.5rem;
+}
+
+.mobileNavLink {
+  position: relative;
+  display: block;
+  color: $text-primary;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+
+  &.active {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+.mobileLinkText {
+  position: relative;
+  z-index: 2;
+}
+
+.mobileActiveIndicator {
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: $primary-color;
+  border-radius: 2px;
+}
+
+.mobileCta {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.mobileCtaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  background: $primary-color;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: lighten($primary-color, 5%);
+  }
+}
+
+.mobileCtaIcon {
+  font-size: 1rem;
+}
