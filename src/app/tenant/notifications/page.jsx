@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import styles from './Notifications.module.scss';
+import styles from './notifications.module.scss';
 import { FaBell, FaEnvelope, FaTools, FaCalendarAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Layout from '../../../components/Tenantlayout/Layout';

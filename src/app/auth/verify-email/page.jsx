@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
-import VerifyEmailInner from './VerifyEmailInner';
+import VerifyEmailInner from './verifyEmailInner';
 
 const VerifyEmail = () => {
   return (

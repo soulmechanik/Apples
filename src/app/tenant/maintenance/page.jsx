@@ -15,7 +15,7 @@ import {
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../../../components/Tenantlayout/Layout';
-import styles from './tenantMaintenance.module.scss';
+import styles from './tenantmaintenance.module.scss';
 
 const MAX_DESCRIPTION_LENGTH = 20;
 
